@@ -98,7 +98,25 @@ shift removes the first hash entry; returns a 2-element Array containing the rem
 
 The `pop` method returns the last element of an array. In this case, we return the String 'caterpillar' and then invoke the `size` method on the returned String.
 
-This would be the same as invoking`caterpillar`.size which returns 11. 
+This would be the same as invoking`caterpillar`.size which returns 11.
 
+=end
+
+#____________________________
+
+[1, 2, 3].any? do |num|
+  puts num
+  num.odd?
+end
+
+=begin
+
+* What is the block's return value in the following code? How is it determined? Also, what is the return value of any? in this code and what does it output?
+
+=> true
+
+The block's return value is determined by truthiness. On line 109, the `odd?` method is evaluated for truthiness on each element in the collection.
+
+Since at least one element in the collection meets the criterion of the `odd?` method - the method returns true.
 
 =end
