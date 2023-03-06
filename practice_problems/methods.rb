@@ -72,3 +72,33 @@ Therefore, the method returns a new Hash object: { "a" => '"ant", "b" => "bear",
 =end
 
 #____________________________
+
+hash = { a: 'ant', b: 'bear' }
+hash.shift
+
+=begin
+
+* What does shift do in the following code? How can we find out?
+
+shift removes the first hash entry; returns a 2-element Array containing the removed key and value:
+
+=> [:a, "ant"]
+
+=end
+
+#____________________________
+
+['ant', 'bear', 'caterpillar'].pop.size
+
+=begin
+
+* What is the return value of the following statement? Why?
+
+=> 11
+
+The `pop` method returns the last element of an array. In this case, we return the String 'caterpillar' and then invoke the `size` method on the returned String.
+
+This would be the same as invoking`caterpillar`.size which returns 11. 
+
+
+=end
