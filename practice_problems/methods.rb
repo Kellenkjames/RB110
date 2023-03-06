@@ -51,3 +51,24 @@ The return value of `reject` in the following code is a new Array containing the
 
 =end
 
+#____________________________
+
+['ant', 'bear', 'cat'].each_with_object({}) do |value, hash|
+  hash[value[0]] = value
+end
+
+=begin
+
+* What is the return value of each_with_object in the following code? Why?
+
+=> { "a" => '"ant", "b" => "bear", "c" => '"cat" }
+
+The `each_with_object` accepts an empty Hash literal as an argument - this means the return object will be a Hash.
+
+The block parameter `hash` uses index assignment to set the first char of each String as the key; while setting the full String as the value for each element in the Array.
+
+Therefore, the method returns a new Hash object: { "a" => '"ant", "b" => "bear", "c" => '"cat" }
+
+=end
+
+#____________________________
