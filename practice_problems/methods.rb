@@ -119,4 +119,23 @@ The block's return value is determined by truthiness. On line 109, the `odd?` me
 
 Since at least one element in the collection meets the criterion of the `odd?` method - the method returns true.
 
+* any? stops iterating after the first return value of the block evaluates as true - there is no need to evaluate the remaining items in the array; therefore, puts num is only ever invoked for the first item in the array: 1.
+
+=end
+
+#____________________________
+
+arr = [1, 2, 3, 4, 5]
+arr.take(2)
+
+=begin
+
+* How does take work? Is it destructive? How can we find out?
+
+take: for non-negative integers 'n', returns the first n elements
+
+=> [1, 2]
+
+`Array#take` is a non-destructive method - it selects a specified number of elements from an array.
+
 =end
