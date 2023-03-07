@@ -139,3 +139,25 @@ take: for non-negative integers 'n', returns the first n elements
 `Array#take` is a non-destructive method - it selects a specified number of elements from an array.
 
 =end
+
+#____________________________
+
+{ a: 'ant', b: 'bear' }.map do |key, value|
+  if value.size > 3
+    value
+  end
+end
+
+=begin
+
+# What is the return value of `map` in the following code? Why?
+
+# => [nil, 'bear']
+
+`map` always performs transformation on elements based on the block's return value. In this case, the method is checking if any value in the Hash has a size greater than 3.
+
+When called on a Hash, `map` returns an array of objects returned by the block. Since the first value doesn't meet the criterion of the expression; it returns `nil`; the second value returns the String `bear`. 
+
+* When none of the conditions in an if statement evalutes as true, the if statement itself returns nil. 
+
+=end
