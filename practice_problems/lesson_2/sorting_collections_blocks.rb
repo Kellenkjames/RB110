@@ -113,3 +113,33 @@ end
 # => (Grandpa) is a (402)-year-old male.
 # => (Eddie) is a (10)-year-old male.
 # => (Marilyn) is a (23)-year-old female.
+
+#____________________________
+
+# Problem 7: Given this code, what would be the final values of a and b? Try to work this out without running the code.
+
+a = 2
+b = [5, 8]
+arr = [a, b]
+
+arr[0] += 2
+arr[1][0] -= a
+arr
+# => [4, [3, 8]]
+
+#____________________________
+
+
+# Problem 8: Using the each method, write some code to output all of the vowels from the strings.
+
+hsh = {first: ['the', 'quick'], second: ['brown', 'fox'], third: ['jumped'], fourth: ['over', 'the', 'lazy', 'dog']}
+
+VOWELS = %w(a e i o u)
+
+hsh.each do |key, value|
+  value.each do |words|
+    words.chars.each do |char|
+      puts char if VOWELS.include?(char)
+    end
+  end
+end
