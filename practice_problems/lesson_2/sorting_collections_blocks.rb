@@ -72,3 +72,44 @@ hsh2[['a']][:a][2] = 4
 hsh2
 # => {["a"]=>{:a=>["1", :two, 4], :b=>4}, "b"=>5}
 
+#____________________________
+
+# Problem 5: Determine the total age of just the male members of the family.
+
+munsters = {
+  "Herman" => { "age" => 32, "gender" => "male" },
+  "Lily" => { "age" => 30, "gender" => "female" },
+  "Grandpa" => { "age" => 402, "gender" => "male" },
+  "Eddie" => { "age" => 10, "gender" => "male" },
+  "Marilyn" => { "age" => 23, "gender" => "female"}
+}
+
+sum = 0
+munsters.each do |key, value|
+  sum += value["age"] if value["gender"] == "male"
+end
+sum
+# => 444
+
+#____________________________
+
+# Problem 6: Given this previously seen family hash, print out the name, age and gender of each family member:
+
+# (Name) is a (age)-year-old (male or female).
+
+munsters = {
+  "Herman" => { "age" => 32, "gender" => "male" },
+  "Lily" => { "age" => 30, "gender" => "female" },
+  "Grandpa" => { "age" => 402, "gender" => "male" },
+  "Eddie" => { "age" => 10, "gender" => "male" },
+  "Marilyn" => { "age" => 23, "gender" => "female"}
+}
+
+munsters.each do |key, value|
+  puts "(#{key}) is a (#{value["age"]})-year-old #{value["gender"]}."
+end
+# => (Herman) is a (32)-year-old male.
+# => (Lily) is a (30)-year-old female.
+# => (Grandpa) is a (402)-year-old male.
+# => (Eddie) is a (10)-year-old male.
+# => (Marilyn) is a (23)-year-old female.
