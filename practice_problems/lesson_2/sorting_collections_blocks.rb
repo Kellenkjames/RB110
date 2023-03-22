@@ -156,3 +156,27 @@ arr.map do |subarray|
   end
 end
 # => [["c", "b", "a"], [3, 2, 1], ["green", "blue", "black"]]
+
+#____________________________
+
+# Problem 10: Given the following data structure and without modifying the original array, use the `map` method to return a new array identical in structure to the original but where the value of each integer is incremented by 1.
+
+[{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}].map do |hash|
+  hash.transform_values { |value| value + 1 }
+end
+# => [{:a=>2}, {:b=>3, :c=>4}, {:d=>5, :e=>6, :f=>7}]
+
+#____________________________
+
+# Problem 11: Given the following data structure use a combination of methods, including either the select or reject method, to return a new array identical in structure to the original but containing only the integers that are multiples of 3.
+
+arr = [[2], [3, 5, 7, 12], [9], [11, 13, 15]]
+
+# [[], [3, 12], [9], [15]]
+
+arr.map do |subarray|
+  subarray.select do |number|
+    number if number % 3 == 0
+  end
+end
+# => [[], [3, 12], [9], [15]]
