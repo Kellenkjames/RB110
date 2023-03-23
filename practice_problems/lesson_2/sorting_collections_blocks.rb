@@ -180,3 +180,41 @@ arr.map do |subarray|
   end
 end
 # => [[], [3, 12], [9], [15]]
+
+#____________________________
+
+# Problem 13: Given the following data structure, return a new array containing the same sub-arrays as the original but ordered logically by only taking into consideration the odd numbers they contain.
+
+arr = [[1, 6, 9], [6, 1, 7], [1, 8, 3], [1, 5, 9]]
+
+arr.sort_by do |subarray|
+  subarray.select do |num|
+    num.odd?
+  end
+end
+# => [[1, 8, 3], [1, 5, 9], [6, 1, 7], [1, 6, 9]]
+
+# Takeaway: The sub-arrays are compared element-by-element. By performing selection on the sub-arrays that we are comparing, we can compare them based on the value of the odd integers alone.
+
+#____________________________
+
+# Problem 14: Given this data structure write some code to return an array containing the colors of the fruits, and the sizes of the vegetables. The sizes should be uppercase and the colors should be capitalized.
+
+hsh = {
+  'grape' => {type: 'fruit', colors: ['red', 'green'], size: 'small'},
+  'carrot' => {type: 'vegetable', colors: ['orange'], size: 'medium'},
+  'apple' => {type: 'fruit', colors: ['red', 'green'], size: 'medium'},
+  'apricot' => {type: 'fruit', colors: ['orange'], size: 'medium'},
+  'marrow' => {type: 'vegetable', colors: ['green'], size: 'large'},
+}
+
+hsh.map do |key, value|
+  if value[:type] == 'fruit'
+    value[:colors].map do |color|
+      color.capitalize
+    end
+  else
+    value[:size].upcase
+  end
+end
+# => [["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"]
