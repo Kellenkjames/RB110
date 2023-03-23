@@ -234,3 +234,83 @@ end
 
 #____________________________
 
+=begin
+
+* P - [Understanding the] Problem
+
+Problem 16: Given a method, return one UUID when called with no parameters. 
+
+input: None (no parameters)
+output: String (new object)
+rules:
+        - Explicit Requirements:
+          - Each UUID consists of 32 hexadecimal characters
+          - Output should be in the following String format: 8-4-4-4-12
+
+        - Implicit Requirements:
+          - No floating point numbers
+          - Letters can be lowercase or upcase
+
+        - Clarifying Questions:
+          - N / A
+
+__________________________________________________
+
+* E - Examples / Test Cases
+
+"f65c57f6-a6aa-17a8-faa1-a67f2dc9fa91"
+
+__________________________________________________
+
+* D - Data Structure
+
+Array []
+
+__________________________________________________
+
+* A - Algorithm
+
+8-4-4-4-12
+
+Initialize a local varaible called lower_cased_letters and assign to letters: "a..z"
+Initialize a local varaible called upper_cased_letters and assign to letters: "A..Z"
+Initialize a local varaible called number_strings and assign to numbers: '0-9'
+
+Initialize a local variable called charset and assign to the return value:
+  - `lower_cased_letters` + `upper_cased_letters` + `numbers`
+
+Initialize a local variable called UUID and assign to an empty String literal " "
+
+Iterate 32 times
+  Reassign `UUID` to the return value of calling sample on charset
+- return value
+
+Insert the String literal "-" at the following string index positions
+    - 8
+    - 13
+    - 18
+    - 23 
+
+return string
+
+__________________________________________________
+
+=end
+
+#_________________________________________________
+
+#* C - Code
+
+def uuid_generator
+  lower_cased_letters = ('a'..'z').to_a
+  upper_cased_letters = ('A'..'Z').to_a
+  number_strings = ('0'..'9').to_a
+  result = ''
+  
+  charset = lower_cased_letters + upper_cased_letters + number_strings
+  32.times { |i| result += charset.sample } 
+  result.insert(8, '-').insert(13, '-').insert(18, '-').insert(23, '-')
+end
+
+uuid_generator
+# => "nnbVVwvC-d8fr-U6Rp-HJYa-yNQalnvzgzyv"
